@@ -1,0 +1,13 @@
+window:
+  opacity: 0.8
+
+  padding:
+    x: 10
+    y: 10
+
+font:
+  normal:
+    family: Mononoki Nerd Font
+    style: Regular
+
+working_directory: C:\Users\
