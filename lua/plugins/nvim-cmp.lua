@@ -24,7 +24,6 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
@@ -34,51 +33,22 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      mapping = {
-        ["<C-j>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expandable() then
-            luasnip.expand()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          elseif check_backspace() then
-            fallback()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<C-k>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-
-        ['<CR>'] = cmp.mapping.confirm {
-
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true
-        },
-        ["<C-l>"] = cmp.mapping {
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close()
-        },
-        ["<C-i>"] = cmp.mapping {
-          i = cmp.mapping.complete()
-        },
-      },
+      mapping = cmp.mapping.preset.insert({
+        ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+        ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+     }),
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp"},
-        { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
-      }),
-
+  }),
+      
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({
