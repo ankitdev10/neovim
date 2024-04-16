@@ -55,6 +55,9 @@ return {
         theme = my_lualine_theme,
       },
       sections = {
+
+
+        lualine_c = {{'filename', path  = 1}},
         lualine_x = {
           {
             lazy_status.updates,
@@ -66,6 +69,14 @@ return {
           { "filetype" },
         },
       },
+      inactive_session = {
+        lualine_a = {},
+        lualine_b = {}, 
+        lualine_c = {{'filename', path  = 1}},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+      }
     })
   end,
 }
