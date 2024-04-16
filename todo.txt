@@ -1,0 +1,7 @@
+nvim-notify
+diagnostics
+git signs
+lazy git
+
+
+configure moving lines upwrd downward
