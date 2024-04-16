@@ -2,6 +2,6 @@ nvim-notify
 diagnostics
 git signs
 lazy git
-
-
+remove nvmim tree with neo tree maybe
+add current path in statusline
 configure moving lines upwrd downward
