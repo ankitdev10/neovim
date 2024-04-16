@@ -1,4 +1,3 @@
-
 return {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -33,7 +32,7 @@ return {
             lazygit:toggle()
         end
 
-        vim.keymap.set("n", "<leader>gg", _lazygit_toggle, {noremap = true, silent = true, desc = "Toggle lazygit"})
+        vim.keymap.set("n", "<C-l>", _lazygit_toggle,  {desc = "Toggle lazygit"})
     end,
 }
 
