@@ -1,3 +1,1 @@
-lazy git
 remove nvmim tree with neo tree maybe
-buffer related configs
