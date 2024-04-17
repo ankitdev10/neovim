@@ -22,6 +22,4 @@ return {
 			vim.api.nvim_win_set_config(win, { zindex = 100 })
 		end,
 	},
-
-	require("notify")("Aaaiyooo, back hacking i see"),
 }
