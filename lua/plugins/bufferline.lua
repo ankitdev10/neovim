@@ -19,6 +19,14 @@ return {
 		options = {
 			separator_style = "slant",
 			diagnostics = "nvim_lsp",
+			offsets = {
+				{
+					filetype = "neo-tree",
+					text = "Neo-tree",
+					highlight = "Directory",
+					text_align = "left",
+				},
+			},
 		},
 	},
 }
