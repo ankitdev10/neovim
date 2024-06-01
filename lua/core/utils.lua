@@ -1,6 +1,6 @@
 return {
 	colorscheme = {
-		default = "sonokai",
+		default = "dracula",
 		select = function()
 			vim.ui.select({
 				"nightly",
