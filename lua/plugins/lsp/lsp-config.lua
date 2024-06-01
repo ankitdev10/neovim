@@ -32,6 +32,7 @@ return {
 				-- set keybinds
 
 				-- possible due to configuration below (check tsserver)
+
 				opts.desc = "Organize imports"
 				keymap.set({ "n", "v" }, "<leader>co", ":OrganizeImports<CR>", opts)
 
