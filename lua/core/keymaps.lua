@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+local utils = require("core.utils")
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
@@ -36,3 +37,6 @@ keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move Line Down" })
 keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move Line Down" })
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move block of line down" })
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move block of line up" })
+
+-- Select colorscheme
+keymap.set("n", "<leader>c", utils.colorscheme.select, { desc = "Change colorscheme" })
