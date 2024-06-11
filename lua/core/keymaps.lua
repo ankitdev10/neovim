@@ -3,13 +3,13 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 local utils = require("core.utils")
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
--- Save and Quite made easier
+-- Save and Quit made easier
 keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Save current file" })
 keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 keymap.set("n", "<leader>qa", "<cmd>qa<CR>", { desc = "Quit all" })
@@ -38,5 +38,12 @@ keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move Line Down" })
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move block of line down" })
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move block of line up" })
 
+-- remove search highlight
+
+keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove search highlight" })
+
 -- Select colorscheme
 keymap.set("n", "<leader>c", utils.colorscheme.select, { desc = "Change colorscheme" })
+
+-- Jump Back to previous place
+keymap.set("n", "<leader>jb", "``", { desc = "Jump back to previous place" })
