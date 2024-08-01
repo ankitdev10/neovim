@@ -15,12 +15,14 @@ set $mod Mod4
 # set $mod Mod1
 
 
-# setup secondary monitor 
+set $fm eDP
+set $sm HDMI-1-0
+
 # Set up the laptop monitor
 exec --no-startup-id xrandr --output eDP --mode 1920x1080 --rate 144
 
 # Set up the second monitor with panning
-exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --left-of eDP --panning 1920x1080+0+0
+exec --no-startup-id xrandr --output HDMI-1-0 --mode 1920x1080 --rate 60 --left-of eDP
 
 
 # exec --no-startup-id xrandr --output HDMI-1-0 --auto --left-of eDP
@@ -34,11 +36,19 @@ exec --no-startup-id feh --bg-scale ~/Downloads/i3-bg.png
 
 # workspaces
 workspace 1 output $fm
-workspace 2 output $fm
+workspace 2 output $sm
 workspace 3 output $fm
 workspace 4 output $sm
-workspace 5 output $sm
+workspace 5 output $fm
 workspace 6 output $sm
+
+
+# Launch Brave in workspace 1
+exec --no-startup-id i3-msg "workspace 1; exec brave-browser"
+
+# Launch Kitty in workspace 2
+exec --no-startup-id i3-msg "workspace 2; exec kitty"
+
 
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id setxkbmap -option ctrl:nocaps
