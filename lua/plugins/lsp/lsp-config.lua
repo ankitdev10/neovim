@@ -187,5 +187,37 @@ return {
 				})
 			end,
 		})
+
+		lspconfig["tailwindcss"].setup({
+			capabilities = capabilities,
+			filetypes = {
+				"html",
+				"css",
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"svelte",
+			},
+			settings = {
+				tailwindCSS = {
+					files = {
+						exclude = {
+							"**/.git/**",
+							"**/node_modules/**",
+							"**/.next/**",
+							"**/dist/**",
+							"**/build/**",
+							"**/out/**",
+							"**/.cache/**",
+							"**/coverage/**",
+							"**/.turbo/**",
+							"**/.vercel/**",
+							"**/.svelte-kit/**",
+						},
+					},
+				},
+			},
+		})
 	end,
 }
