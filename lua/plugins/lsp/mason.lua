@@ -48,7 +48,8 @@ return {
 					"ts_ls",
 					"tailwindcss",
 					"eslint",
-					"ruff", -- ruff is enabled in linting.lua
+					"ruff",
+					"stylua", -- formatter, not an LSP
 				},
 			},
 		})
